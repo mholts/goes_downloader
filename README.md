@@ -7,6 +7,8 @@
 
 This script is built to download GOES 16/17 data from public Amazon Web Services (AWS) to the local machine.  The intention was for this to be a quick download for users of WSV3 Weather Display software.  
 
+This script was based off of work done by Brian Blaylock found here: http://home.chpc.utah.edu/~u0553130/Brian_Blaylock/cgi-bin/goes16_download.cgi
+
 ## Use
 
 When run on the command line , the script defaults to use GOES 16, Conus View, Band 01.  These parameters can be set using the following arguments:
