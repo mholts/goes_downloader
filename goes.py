@@ -52,13 +52,26 @@ if __name__ == '__main__':
 	parse_command_line()
 
 	day_of_year_now = datetime.utcnow().timetuple().tm_yday
+	if day_of_year_now < 10:
+		day_of_year_now = '00'+ str(day_of_year_now)
+	if day_of_year_now < 100 and day_of_year_now >= 10:
+		day_of_year_now = '0'+ str(day_of_year_now)	
 	now = datetime.utcnow()
 	year = now.year
 	hour = now.hour
+	if hour < 10:
+		hour = '0'+ str(hour)	
+
 	one_hour_ago = now - timedelta(hours=1)
 	one_hour_ago_year = one_hour_ago.year
 	one_hour_ago_hour = one_hour_ago.hour
+	if one_hour_ago_hour < 10:
+		one_hour_ago_hour = '0'+ str(one_hour_ago_hour)
 	one_hour_ago_days = one_hour_ago.timetuple().tm_yday
+	if one_hour_ago_days < 10:
+		one_hour_ago_days = '00'+ str(one_hour_ago_days)
+	if one_hour_ago_days < 100 and one_hour_ago_days >= 10:
+		one_hour_ago_days = '0'+ str(one_hour_ago_days)	
 
 	directory_one_hour_ago = "noaa-goes{}/ABI-L2-{}/{}/{}/{}".format(GOES, VIEW, one_hour_ago_year, one_hour_ago_days, one_hour_ago_hour)
 	directory_now = "noaa-goes{}/ABI-L2-{}/{}/{}/{}".format(GOES, VIEW, year, day_of_year_now, hour)
